@@ -1,7 +1,7 @@
 options
   mouse on
   origin topleft
-  set &Count 2 # starts with showing two blocks
+  set &Count 2 # Path length
   
 bitmaps
   yellow
@@ -45,8 +45,8 @@ task corsi
   show bitmap purple @17 @18
   show bitmap done 750 550
   # now we are going to highlight some of the blocks (in yellow)
-  # there will always at least be two yellow blocks
-  # more yellow blocks depends on where we are in the expetiment (&Count)
+  # there will always be 7 yellow blocks
+  # more yellow blocks depends on where we are in the experiment (&Count)
   show bitmap yellow @19 @20
   part delay
   show bitmap yellow @21 @22
