@@ -6,6 +6,11 @@ options
 bitmaps
   yellow
   purple
+  red
+  blue
+  green
+  orange
+  rose
   done
   ticked
   correct
@@ -33,16 +38,35 @@ task corsi
   table corsidata
   # mouse off so that people cannot mouse during sequence presentation
   mouse off 
-  # show nine purple blocks
-  show bitmap purple @1 @2
-  show bitmap purple @3 @4
-  show bitmap purple @5 @6
-  show bitmap purple @7 @8
-  show bitmap purple @9 @10
-  show bitmap purple @11 @12
-  show bitmap purple @13 @14
-  show bitmap purple @15 @16
-  show bitmap purple @17 @18
+  #create the focal point
+  show bitmap red
+  # create the first close range box of squares
+  show bitmap blue 290 300
+  show bitmap blue 290 190
+  show bitmap blue 290 410
+  show bitmap blue 400 190
+  show bitmap blue 400 410
+  show bitmap blue 510 300
+  show bitmap blue 510 190
+  show bitmap blue 510 410
+  # create the second slightly more periphery version of squares
+  show bitmap orange 180 300
+  show bitmap orange 180 80
+  show bitmap orange 180 520
+  show bitmap orange 380 80
+  show bitmap orange 420 520
+  show bitmap orange 620 300
+  show bitmap orange 620 80
+  show bitmap orange 620 520
+  # create the third, most periphery border of squares
+  show bitmap rose 70 333
+  show bitmap rose 70 50
+  show bitmap rose 70 555
+  show bitmap rose 500 50
+  show bitmap rose 290 555
+  show bitmap rose 730 275
+  show bitmap rose 730 50
+  show bitmap rose 730 432
   show bitmap done 750 550
   # now we are going to highlight some of the blocks (in yellow)
   # there will always be 7 yellow blocks
