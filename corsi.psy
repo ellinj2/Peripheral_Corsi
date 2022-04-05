@@ -1,219 +1,308 @@
 options
-  mouse on
-  origin topleft
-  set &Count 2 # Path length
-  
+    mouse on
+    origin topleft
+    set &Count 1
+    fullscreen
+
 bitmaps
-  yellow
-  purple
-  red
-  blue
-  green
-  orange
-  rose
-  done
-  ticked
-  correct
-  wrong
-  instructions
-  ready1
-  ready2
-  ready3
-  
+    yellow
+    purple
+    red
+    blue
+    green
+    orange
+    rose
+    done
+    ticked
+    correct
+    wrong
+    instructions
+    ready1
+    ready2
+    ready3
+
 fonts
-  arial 30
+    arial 30
 
 sounds
-  gosignal go.mp3
+    gosignal go.mp3
 
 part delay
-  delay 300
-  clear -1
-  delay 300
+    delay 1000
+    clear -1
+    delay 1000
 
-table corsidata
-  include corsitable.txt
+table near
+    include near.txt
 
-task corsi
-  table corsidata
-  # mouse off so that people cannot mouse during sequence presentation
-  mouse off 
-  #create the focal point
-  show bitmap red
-  # create the first close range box of squares
-  show bitmap blue 290 300
-  show bitmap blue 290 190
-  show bitmap blue 290 410
-  show bitmap blue 400 190
-  show bitmap blue 400 410
-  show bitmap blue 510 300
-  show bitmap blue 510 190
-  show bitmap blue 510 410
-  # create the second slightly more periphery version of squares
-  show bitmap orange 180 300
-  show bitmap orange 180 80
-  show bitmap orange 180 520
-  show bitmap orange 380 80
-  show bitmap orange 420 520
-  show bitmap orange 620 300
-  show bitmap orange 620 80
-  show bitmap orange 620 520
-  # create the third, most periphery border of squares
-  show bitmap rose 70 333
-  show bitmap rose 70 50
-  show bitmap rose 70 555
-  show bitmap rose 500 50
-  show bitmap rose 290 555
-  show bitmap rose 730 275
-  show bitmap rose 730 50
-  show bitmap rose 730 432
-  show bitmap done 750 550
-  # now we are going to highlight some of the blocks (in yellow)
-  # there will always be 7 yellow blocks
-  # more yellow blocks depends on where we are in the experiment (&Count)
-  show bitmap yellow @19 @20
-  part delay
-  show bitmap yellow @21 @22
-  part delay
-  if &Count > 2
-    show bitmap yellow @23 @24
-    part delay
-  fi
-  if &Count > 3
-    show bitmap yellow @25 @26
-    part delay
-  fi
-  if &Count > 4
-    show bitmap yellow @27 @28
-    part delay
-  fi
-  if &Count > 5
-    show bitmap yellow @29 @30
-    part delay
-  fi
-  if &Count > 6
-    show bitmap yellow @31 @32
-    part delay
-  fi
-  if &Count > 7
-    show bitmap yellow @33 @34
-    part delay
-  fi
-  if &Count > 8
-    show bitmap yellow @35 @36
-    part delay
-  fi
-  # go!
-  sound gosignal
-  mouse show  # now show cursor again
-  delay 100   # not really necessary, but gives a bit of time between sound and people's response
-  # read in sequence
-  while $x != 10
-    readmouse l 1 10000 range 1 10
-    set $myMouseX MOUSE_X
-    set $myMouseY MOUSE_Y
-    set $x under $myMouseX $myMouseY up range 1 10
-    if $x != 10
-      set $counter increase
-    fi
-    if $counter == 1 && $x != 10
-      set $b1 $x
-    fi
-    if $counter == 2 && $x != 10 
-      set $b2 $x
-    fi
-    if $counter == 3 && $x != 10
-      set $b3 $x
-    fi
-    if $counter == 4 && $x != 10
-      set $b4 $x
-    fi
-    if $counter == 5 && $x != 10
-      set $b5 $x
-    fi
-    if $counter == 6 && $x != 10
-      set $b6 $x
-    fi
-    if $counter == 7 && $x != 10
-      set $b7 $x
-    fi
-    if $counter == 8 && $x != 10
-      set $b8 $x 
-    fi
-    if $counter == 9 && $x != 10
-      set $b9 $x
-    fi
-    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end javascript coding
-  while-end
-  set $x 0
-  # now check if sequence is correct
-  set $SeqCorrect 0 # this means wrong
-  if $counter == &Count
-    if &Count == 2 && $b1 == @37 && $b2 == @38
-      set $SeqCorrect 1
-    fi
-    if &Count == 3 && $b1 == @37 && $b2 == @38 && $b3 == @39
-      set $SeqCorrect 1
-    fi
-    if &Count == 4 && $b1 == @37 && $b2 == @38 && $b3 == @39 && $b4 == @40
-      set $SeqCorrect 1
-    fi
-    if &Count == 5 && $b1 == @37 && $b2 == @38 && $b3 == @39 && $b4 == @40 && $b5 == @41
-      set $SeqCorrect 1
-    fi
-    if &Count == 6 && $b1 == @37 && $b2 == @38 && $b3 == @39 && $b4 == @40 && $b5 == @41 && $b6 == @42
-      set $SeqCorrect 1
-    fi
-    if &Count == 7 && $b1 == @37 && $b2 == @38 && $b3 == @39 && $b4 == @40 && $b5 == @41 && $b6 == @42 && $b7 == @43
-      set $SeqCorrect 1
-    fi
-    if &Count == 8 && $b1 == @37 && $b2 == @38 && $b3 == @39 && $b4 == @40 && $b5 == @41 && $b6 == @42 && $b7 == @43 && $b8 == @44
-      set $SeqCorrect 1
-    fi
-    if &Count == 9 && $b1 == @37 && $b2 == @38 && $b3 == @39 && $b4 == @40 && $b5 == @41 && $b6 == @42 && $b7 == @43 && $b8 == @44 && $b9 == @45
-      set $SeqCorrect 1
-    fi
-  fi 
-  ## feedback (a smiley or frowney face in bottom right corner)
-  if $SeqCorrect == 1
-    show bitmap correct 750 550
-  fi
-  if $SeqCorrect == 0
-    show bitmap wrong 750 550
-  fi
-  delay 1000
-  clear -1
-  delay 1000
-  ## now goto next seq if correct twice
-  set $currentcount &Count
-  if $SeqCorrect == 1
-    set &corsispan &Count ## the best score so far
-    set &Count increase
-    set &ErrorCount 0    
-  fi
-  ## count errors in a row
-  if $SeqCorrect == 0
-    set &ErrorCount increase
-  fi
-  ## save data
-  save &corsispan $currentcount $SeqCorrect TABLEROW
-  ## if two errors in a row or if all are correctly clicked, end of task
-  if &ErrorCount == 2 or &Count == 10
-    end tasklist
-  fi
+table mid
+    include mid.txt
 
+table far
+    include far.txt
+
+task nearcorsi
+    mouse off
+    show bitmap red
+    # Rose
+    show rectangle 50 550 40 40 252 3 82
+    show rectangle 50 500 40 40 252 3 82
+    show rectangle 50 450 40 40 252 3 82
+    show rectangle 50 400 40 40 252 3 82
+    show rectangle 50 350 40 40 252 3 82
+    show rectangle 50 300 40 40 252 3 82
+    show rectangle 50 250 40 40 252 3 82
+    show rectangle 50 200 40 40 252 3 82
+    show rectangle 50 150 40 40 252 3 82
+    show rectangle 50 100 40 40 252 3 82
+    show rectangle 50 50 40 40 252 3 82
+    show rectangle 100 50 40 40 252 3 82
+    show rectangle 150 50 40 40 252 3 82
+    show rectangle 200 50 40 40 252 3 82
+    show rectangle 250 50 40 40 252 3 82
+    show rectangle 300 50 40 40 252 3 82
+    show rectangle 350 50 40 40 252 3 82
+    show rectangle 400 50 40 40 252 3 82
+    show rectangle 450 50 40 40 252 3 82
+    show rectangle 500 50 40 40 252 3 82
+    show rectangle 550 50 40 40 252 3 82
+    show rectangle 600 50 40 40 252 3 82
+    show rectangle 650 50 40 40 252 3 82
+    show rectangle 700 50 40 40 252 3 82
+    show rectangle 750 50 40 40 252 3 82
+    show rectangle 750 100 40 40 252 3 82
+    show rectangle 750 150 40 40 252 3 82
+    show rectangle 750 200 40 40 252 3 82
+    show rectangle 750 250 40 40 252 3 82
+    show rectangle 750 300 40 40 252 3 82
+    show rectangle 750 350 40 40 252 3 82
+    show rectangle 750 400 40 40 252 3 82
+    show rectangle 750 450 40 40 252 3 82
+    show rectangle 750 500 40 40 252 3 82
+    show rectangle 750 550 40 40 252 3 82
+    show rectangle 700 550 40 40 252 3 82
+    show rectangle 650 550 40 40 252 3 82
+    show rectangle 600 550 40 40 252 3 82
+    show rectangle 550 550 40 40 252 3 82
+    show rectangle 500 550 40 40 252 3 82
+    show rectangle 450 550 40 40 252 3 82
+    show rectangle 400 550 40 40 252 3 82
+    show rectangle 350 550 40 40 252 3 82
+    show rectangle 300 550 40 40 252 3 82
+    show rectangle 250 550 40 40 252 3 82
+    show rectangle 200 550 40 40 252 3 82
+    show rectangle 150 550 40 40 252 3 82
+    show rectangle 100 550 40 40 252 3 82
+    show rectangle 50 550 40 40 252 3 82
+    # Second layer
+    show rectangle 100 500 40 40 252 3 82
+    show rectangle 100 450 40 40 252 3 82
+    show rectangle 100 400 40 40 252 3 82
+    show rectangle 100 350 40 40 252 3 82
+    show rectangle 100 300 40 40 252 3 82
+    show rectangle 100 250 40 40 252 3 82
+    show rectangle 100 200 40 40 252 3 82
+    show rectangle 100 150 40 40 252 3 82
+    show rectangle 100 100 40 40 252 3 82
+    show rectangle 700 100 40 40 252 3 82
+    show rectangle 700 150 40 40 252 3 82
+    show rectangle 700 200 40 40 252 3 82
+    show rectangle 700 250 40 40 252 3 82
+    show rectangle 700 300 40 40 252 3 82
+    show rectangle 700 350 40 40 252 3 82
+    show rectangle 700 400 40 40 252 3 82
+    show rectangle 700 450 40 40 252 3 82
+    show rectangle 700 500 40 40 252 3 82
+    # Orange
+    show rectangle 150 100 40 40 252 119 3
+    show rectangle 200 100 40 40 252 119 3
+    show rectangle 250 100 40 40 252 119 3
+    show rectangle 300 100 40 40 252 119 3
+    show rectangle 350 100 40 40 252 119 3
+    show rectangle 400 100 40 40 252 119 3
+    show rectangle 450 100 40 40 252 119 3
+    show rectangle 500 100 40 40 252 119 3
+    show rectangle 550 100 40 40 252 119 3
+    show rectangle 600 100 40 40 252 119 3
+    show rectangle 650 100 40 40 252 119 3
+    show rectangle 650 150 40 40 252 119 3
+    show rectangle 650 200 40 40 252 119 3
+    show rectangle 650 250 40 40 252 119 3
+    show rectangle 650 300 40 40 252 119 3
+    show rectangle 650 350 40 40 252 119 3
+    show rectangle 650 400 40 40 252 119 3
+    show rectangle 650 450 40 40 252 119 3
+    show rectangle 650 500 40 40 252 119 3
+    show rectangle 600 500 40 40 252 119 3
+    show rectangle 550 500 40 40 252 119 3
+    show rectangle 500 500 40 40 252 119 3
+    show rectangle 450 500 40 40 252 119 3
+    show rectangle 400 500 40 40 252 119 3
+    show rectangle 350 500 40 40 252 119 3
+    show rectangle 300 500 40 40 252 119 3
+    show rectangle 250 500 40 40 252 119 3
+    show rectangle 200 500 40 40 252 119 3
+    show rectangle 150 500 40 40 252 119 3
+    show rectangle 150 450 40 40 252 119 3
+    show rectangle 150 400 40 40 252 119 3
+    show rectangle 150 350 40 40 252 119 3
+    show rectangle 150 300 40 40 252 119 3
+    show rectangle 150 250 40 40 252 119 3
+    show rectangle 150 200 40 40 252 119 3
+    show rectangle 150 150 40 40 252 119 3
+    # Second layer
+    show rectangle 200 150 40 40 252 119 3
+    show rectangle 200 200 40 40 252 119 3
+    show rectangle 200 250 40 40 252 119 3
+    show rectangle 200 300 40 40 252 119 3
+    show rectangle 200 350 40 40 252 119 3
+    show rectangle 200 400 40 40 252 119 3
+    show rectangle 200 450 40 40 252 119 3
+    show rectangle 600 450 40 40 252 119 3
+    show rectangle 600 400 40 40 252 119 3
+    show rectangle 600 350 40 40 252 119 3
+    show rectangle 600 300 40 40 252 119 3
+    show rectangle 600 250 40 40 252 119 3
+    show rectangle 600 200 40 40 252 119 3
+    show rectangle 600 150 40 40 252 119 3
+    # Blue
+    show rectangle 550 150 40 40 3 136 252
+    show rectangle 550 200 40 40 3 136 252
+    show rectangle 550 250 40 40 3 136 252
+    show rectangle 550 300 40 40 3 136 252
+    show rectangle 550 350 40 40 3 136 252
+    show rectangle 550 400 40 40 3 136 252
+    show rectangle 550 450 40 40 3 136 252
+    show rectangle 500 450 40 40 3 136 252
+    show rectangle 450 450 40 40 3 136 252
+    show rectangle 400 450 40 40 3 136 252
+    show rectangle 350 450 40 40 3 136 252
+    show rectangle 300 450 40 40 3 136 252
+    show rectangle 250 450 40 40 3 136 252
+    show rectangle 250 400 40 40 3 136 252
+    show rectangle 250 350 40 40 3 136 252
+    show rectangle 250 300 40 40 3 136 252
+    show rectangle 250 250 40 40 3 136 252
+    show rectangle 250 200 40 40 3 136 252
+    show rectangle 250 150 40 40 3 136 252
+    show rectangle 300 150 40 40 3 136 252
+    show rectangle 350 150 40 40 3 136 252
+    show rectangle 400 150 40 40 3 136 252
+    show rectangle 450 150 40 40 3 136 252
+    show rectangle 500 150 40 40 3 136 252
+    # Second layer
+    show rectangle 500 200 40 40 3 136 252
+    show rectangle 500 250 40 40 3 136 252
+    show rectangle 500 300 40 40 3 136 252
+    show rectangle 500 350 40 40 3 136 252
+    show rectangle 500 400 40 40 3 136 252
+    show rectangle 450 400 40 40 3 136 252
+    show rectangle 400 400 40 40 3 136 252
+    show rectangle 350 400 40 40 3 136 252
+    show rectangle 300 400 40 40 3 136 252
+    show rectangle 300 350 40 40 3 136 252
+    show rectangle 300 300 40 40 3 136 252
+    show rectangle 300 250 40 40 3 136 252
+    show rectangle 300 200 40 40 3 136 252
+    show rectangle 350 200 40 40 3 136 252
+    show rectangle 400 200 40 40 3 136 252
+    show rectangle 450 200 40 40 3 136 252
+    # Show path
+    table near
+    delay 500
+    show rectangle @1 @2 40 40 251 250 0
+    part delay
+    show rectangle @3 @4 40 40 251 250 0
+    part delay
+    show rectangle @5 @6 40 40 251 250 0
+    part delay
+    show rectangle @7 @8 40 40 251 250 0
+    part delay
+    show rectangle @9 @10 40 40 251 250 0
+    part delay
+    show rectangle @11 @12 40 40 251 250 0
+    part delay
+    show rectangle @13 @14 40 40 251 250 0
+    part delay
+    sound gosignal
+    mouse show
+    delay 100
+    while $x != 10
+        readmouse l 1 10000 range 1 10
+        set $myMouseX MOUSE_X
+        set $myMouseY MOUSE_Y
+        set $x under $myMouseX $myMouseY up range 1 10
+        if $x != 10
+          set $counter increase
+        fi
+        if $counter == 1 && $x != 10
+          set $b1 $x
+        fi
+        if $counter == 2 && $x != 10 
+          set $b2 $x
+        fi
+        if $counter == 3 && $x != 10
+          set $b3 $x
+        fi
+        if $counter == 4 && $x != 10
+          set $b4 $x
+        fi
+        if $counter == 5 && $x != 10
+          set $b5 $x
+        fi
+        if $counter == 6 && $x != 10
+          set $b6 $x
+        fi
+        if $counter == 7 && $x != 10
+          set $b7 $x
+        fi
+        show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end javascript coding
+    while-end
+    set $x 0
+    # now check if sequence is correct
+    set $SeqCorrect 0 # this means wrong
+    if $counter == &Count
+        if $b1 == @1 && $b2 == @2 && $b3 == @3 && $b3 == @3 && $b4 == @4 && $b5 == @5 && $b6 == @6 && $b7 == @7
+            set $SeqCorrect 1
+        fi
+    fi
+    ## feedback (a smiley or frowney face in bottom right corner)
+    if $SeqCorrect == 1
+        show bitmap correct 750 550
+    fi
+    if $SeqCorrect == 0
+        show bitmap wrong 750 550
+    fi
+    delay 1000
+    clear -1
+    delay 1000
+    ## now goto next seq if correct twice
+    set $currentcount &Count
+    if $SeqCorrect == 1
+        set &corsispan &Count ## the best score so far
+        set &Count increase
+        set &ErrorCount 0    
+    fi
+    ## count errors in a row
+    if $SeqCorrect == 0
+        set &ErrorCount increase
+    fi
+    ## save data
+    save &corsispan $currentcount $SeqCorrect TABLEROW
+    ## if two errors in a row or if all are correctly clicked, end of task
+    if &ErrorCount == 2 or &Count == 10
+        end tasklist
+    fi
+    delay 5000
+    
 block test
-  message instructions
-  bitmap ready3
-  delay 1000
-  bitmap ready2
-  delay 1000  
-  bitmap ready1
-  delay 1000  
-  tasklist
-    corsi 100 all_before_repeat
-  end
-  feedback
-    text 0 400 &corsispan ; prefix "Your Corsi span is " ; postfix " items."
-    text 0 500 "Press space bar to continue"
-  end
+    message instructions
+    bitmap ready3
+    delay 1000
+    bitmap ready2
+    delay 1000
+    bitmap ready1
+    delay 1000
+    tasklist
+        nearcorsi 5 all_before_repeat
+    end
