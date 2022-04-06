@@ -28,9 +28,9 @@ sounds
     gosignal go.mp3
 
 part delay
-    delay 1000
+    delay 300
     clear -1
-    delay 1000
+    delay 300
 
 table near
     include near.txt
@@ -41,7 +41,10 @@ table mid
 table far
     include far.txt
 
-task nearcorsi
+task near_corsi
+    show text @1
+    delay 1000
+    clear -1
     mouse off
     show bitmap red
     # Rose
@@ -210,91 +213,512 @@ task nearcorsi
     # Show path
     table near
     delay 500
-    show rectangle @1 @2 40 40 251 250 0
-    part delay
-    show rectangle @3 @4 40 40 251 250 0
-    part delay
-    show rectangle @5 @6 40 40 251 250 0
-    part delay
-    show rectangle @7 @8 40 40 251 250 0
-    part delay
-    show rectangle @9 @10 40 40 251 250 0
-    part delay
-    show rectangle @11 @12 40 40 251 250 0
-    part delay
-    show rectangle @13 @14 40 40 251 250 0
-    part delay
-    sound gosignal
-    mouse show
-    delay 100
-    while $x != 10
-        readmouse l 1 10000 range 1 10
-        set $myMouseX MOUSE_X
-        set $myMouseY MOUSE_Y
-        set $x under $myMouseX $myMouseY up range 1 10
-        if $x != 10
-          set $counter increase
+    set $iterator 0
+    while $iterator < @1
+        if $iterator == 0 && $iterator < @1
+            show rectangle @2 @3 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 1 && $x != 10
-          set $b1 $x
+        if $iterator == 1 && $iterator < @1
+            show rectangle @4 @5 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 2 && $x != 10 
-          set $b2 $x
+        if $iterator == 2 && $iterator < @1
+            show rectangle @6 @7 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 3 && $x != 10
-          set $b3 $x
+        if $iterator == 3 && $iterator < @1
+            show rectangle @8 @9 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 4 && $x != 10
-          set $b4 $x
+        if $iterator == 4 && $iterator < @1
+            show rectangle @10 @11 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 5 && $x != 10
-          set $b5 $x
+        if $iterator == 5 && $iterator < @1
+            show rectangle @12 @13 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 6 && $x != 10
-          set $b6 $x
+        if $iterator == 6 && $iterator < @1
+            show rectangle @14 @15 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        if $counter == 7 && $x != 10
-          set $b7 $x
+        if $iterator == 7 && $iterator < @1
+            show rectangle @16 @17 40 40 251 250 0
+            set $iterator increase
+            part delay
         fi
-        show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end javascript coding
+        if $iterator == 8 && $iterator < @1
+            show rectangle @18 @19 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
     while-end
-    set $x 0
-    # now check if sequence is correct
-    set $SeqCorrect 0 # this means wrong
-    if $counter == &Count
-        if $b1 == @1 && $b2 == @2 && $b3 == @3 && $b3 == @3 && $b4 == @4 && $b5 == @5 && $b6 == @6 && $b7 == @7
-            set $SeqCorrect 1
-        fi
-    fi
-    ## feedback (a smiley or frowney face in bottom right corner)
-    if $SeqCorrect == 1
-        show bitmap correct 750 550
-    fi
-    if $SeqCorrect == 0
-        show bitmap wrong 750 550
-    fi
+    clear screen
+    show text "How many squares turned yellow?"
+    readkeys @1 10000
+    set $task "near"
+    save STATUS $task
+
+task mid_corsi
+    show text @1
     delay 1000
     clear -1
+    mouse off
+    show bitmap red
+    # Rose
+    show rectangle 50 550 40 40 252 3 82
+    show rectangle 50 500 40 40 252 3 82
+    show rectangle 50 450 40 40 252 3 82
+    show rectangle 50 400 40 40 252 3 82
+    show rectangle 50 350 40 40 252 3 82
+    show rectangle 50 300 40 40 252 3 82
+    show rectangle 50 250 40 40 252 3 82
+    show rectangle 50 200 40 40 252 3 82
+    show rectangle 50 150 40 40 252 3 82
+    show rectangle 50 100 40 40 252 3 82
+    show rectangle 50 50 40 40 252 3 82
+    show rectangle 100 50 40 40 252 3 82
+    show rectangle 150 50 40 40 252 3 82
+    show rectangle 200 50 40 40 252 3 82
+    show rectangle 250 50 40 40 252 3 82
+    show rectangle 300 50 40 40 252 3 82
+    show rectangle 350 50 40 40 252 3 82
+    show rectangle 400 50 40 40 252 3 82
+    show rectangle 450 50 40 40 252 3 82
+    show rectangle 500 50 40 40 252 3 82
+    show rectangle 550 50 40 40 252 3 82
+    show rectangle 600 50 40 40 252 3 82
+    show rectangle 650 50 40 40 252 3 82
+    show rectangle 700 50 40 40 252 3 82
+    show rectangle 750 50 40 40 252 3 82
+    show rectangle 750 100 40 40 252 3 82
+    show rectangle 750 150 40 40 252 3 82
+    show rectangle 750 200 40 40 252 3 82
+    show rectangle 750 250 40 40 252 3 82
+    show rectangle 750 300 40 40 252 3 82
+    show rectangle 750 350 40 40 252 3 82
+    show rectangle 750 400 40 40 252 3 82
+    show rectangle 750 450 40 40 252 3 82
+    show rectangle 750 500 40 40 252 3 82
+    show rectangle 750 550 40 40 252 3 82
+    show rectangle 700 550 40 40 252 3 82
+    show rectangle 650 550 40 40 252 3 82
+    show rectangle 600 550 40 40 252 3 82
+    show rectangle 550 550 40 40 252 3 82
+    show rectangle 500 550 40 40 252 3 82
+    show rectangle 450 550 40 40 252 3 82
+    show rectangle 400 550 40 40 252 3 82
+    show rectangle 350 550 40 40 252 3 82
+    show rectangle 300 550 40 40 252 3 82
+    show rectangle 250 550 40 40 252 3 82
+    show rectangle 200 550 40 40 252 3 82
+    show rectangle 150 550 40 40 252 3 82
+    show rectangle 100 550 40 40 252 3 82
+    show rectangle 50 550 40 40 252 3 82
+    # Second layer
+    show rectangle 100 500 40 40 252 3 82
+    show rectangle 100 450 40 40 252 3 82
+    show rectangle 100 400 40 40 252 3 82
+    show rectangle 100 350 40 40 252 3 82
+    show rectangle 100 300 40 40 252 3 82
+    show rectangle 100 250 40 40 252 3 82
+    show rectangle 100 200 40 40 252 3 82
+    show rectangle 100 150 40 40 252 3 82
+    show rectangle 100 100 40 40 252 3 82
+    show rectangle 700 100 40 40 252 3 82
+    show rectangle 700 150 40 40 252 3 82
+    show rectangle 700 200 40 40 252 3 82
+    show rectangle 700 250 40 40 252 3 82
+    show rectangle 700 300 40 40 252 3 82
+    show rectangle 700 350 40 40 252 3 82
+    show rectangle 700 400 40 40 252 3 82
+    show rectangle 700 450 40 40 252 3 82
+    show rectangle 700 500 40 40 252 3 82
+    # Orange
+    show rectangle 150 100 40 40 252 119 3
+    show rectangle 200 100 40 40 252 119 3
+    show rectangle 250 100 40 40 252 119 3
+    show rectangle 300 100 40 40 252 119 3
+    show rectangle 350 100 40 40 252 119 3
+    show rectangle 400 100 40 40 252 119 3
+    show rectangle 450 100 40 40 252 119 3
+    show rectangle 500 100 40 40 252 119 3
+    show rectangle 550 100 40 40 252 119 3
+    show rectangle 600 100 40 40 252 119 3
+    show rectangle 650 100 40 40 252 119 3
+    show rectangle 650 150 40 40 252 119 3
+    show rectangle 650 200 40 40 252 119 3
+    show rectangle 650 250 40 40 252 119 3
+    show rectangle 650 300 40 40 252 119 3
+    show rectangle 650 350 40 40 252 119 3
+    show rectangle 650 400 40 40 252 119 3
+    show rectangle 650 450 40 40 252 119 3
+    show rectangle 650 500 40 40 252 119 3
+    show rectangle 600 500 40 40 252 119 3
+    show rectangle 550 500 40 40 252 119 3
+    show rectangle 500 500 40 40 252 119 3
+    show rectangle 450 500 40 40 252 119 3
+    show rectangle 400 500 40 40 252 119 3
+    show rectangle 350 500 40 40 252 119 3
+    show rectangle 300 500 40 40 252 119 3
+    show rectangle 250 500 40 40 252 119 3
+    show rectangle 200 500 40 40 252 119 3
+    show rectangle 150 500 40 40 252 119 3
+    show rectangle 150 450 40 40 252 119 3
+    show rectangle 150 400 40 40 252 119 3
+    show rectangle 150 350 40 40 252 119 3
+    show rectangle 150 300 40 40 252 119 3
+    show rectangle 150 250 40 40 252 119 3
+    show rectangle 150 200 40 40 252 119 3
+    show rectangle 150 150 40 40 252 119 3
+    # Second layer
+    show rectangle 200 150 40 40 252 119 3
+    show rectangle 200 200 40 40 252 119 3
+    show rectangle 200 250 40 40 252 119 3
+    show rectangle 200 300 40 40 252 119 3
+    show rectangle 200 350 40 40 252 119 3
+    show rectangle 200 400 40 40 252 119 3
+    show rectangle 200 450 40 40 252 119 3
+    show rectangle 600 450 40 40 252 119 3
+    show rectangle 600 400 40 40 252 119 3
+    show rectangle 600 350 40 40 252 119 3
+    show rectangle 600 300 40 40 252 119 3
+    show rectangle 600 250 40 40 252 119 3
+    show rectangle 600 200 40 40 252 119 3
+    show rectangle 600 150 40 40 252 119 3
+    # Blue
+    show rectangle 550 150 40 40 3 136 252
+    show rectangle 550 200 40 40 3 136 252
+    show rectangle 550 250 40 40 3 136 252
+    show rectangle 550 300 40 40 3 136 252
+    show rectangle 550 350 40 40 3 136 252
+    show rectangle 550 400 40 40 3 136 252
+    show rectangle 550 450 40 40 3 136 252
+    show rectangle 500 450 40 40 3 136 252
+    show rectangle 450 450 40 40 3 136 252
+    show rectangle 400 450 40 40 3 136 252
+    show rectangle 350 450 40 40 3 136 252
+    show rectangle 300 450 40 40 3 136 252
+    show rectangle 250 450 40 40 3 136 252
+    show rectangle 250 400 40 40 3 136 252
+    show rectangle 250 350 40 40 3 136 252
+    show rectangle 250 300 40 40 3 136 252
+    show rectangle 250 250 40 40 3 136 252
+    show rectangle 250 200 40 40 3 136 252
+    show rectangle 250 150 40 40 3 136 252
+    show rectangle 300 150 40 40 3 136 252
+    show rectangle 350 150 40 40 3 136 252
+    show rectangle 400 150 40 40 3 136 252
+    show rectangle 450 150 40 40 3 136 252
+    show rectangle 500 150 40 40 3 136 252
+    # Second layer
+    show rectangle 500 200 40 40 3 136 252
+    show rectangle 500 250 40 40 3 136 252
+    show rectangle 500 300 40 40 3 136 252
+    show rectangle 500 350 40 40 3 136 252
+    show rectangle 500 400 40 40 3 136 252
+    show rectangle 450 400 40 40 3 136 252
+    show rectangle 400 400 40 40 3 136 252
+    show rectangle 350 400 40 40 3 136 252
+    show rectangle 300 400 40 40 3 136 252
+    show rectangle 300 350 40 40 3 136 252
+    show rectangle 300 300 40 40 3 136 252
+    show rectangle 300 250 40 40 3 136 252
+    show rectangle 300 200 40 40 3 136 252
+    show rectangle 350 200 40 40 3 136 252
+    show rectangle 400 200 40 40 3 136 252
+    show rectangle 450 200 40 40 3 136 252
+    # Show path
+    table mid
+    delay 500
+    set $iterator 0
+    while $iterator < @1
+        if $iterator == 0 && $iterator < @1
+            show rectangle @2 @3 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 1 && $iterator < @1
+            show rectangle @4 @5 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 2 && $iterator < @1
+            show rectangle @6 @7 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 3 && $iterator < @1
+            show rectangle @8 @9 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 4 && $iterator < @1
+            show rectangle @10 @11 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 5 && $iterator < @1
+            show rectangle @12 @13 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 6 && $iterator < @1
+            show rectangle @14 @15 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 7 && $iterator < @1
+            show rectangle @16 @17 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 8 && $iterator < @1
+            show rectangle @18 @19 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+    while-end
+    clear screen
+    show text "How many squares turned yellow?"
+    readkeys @1 10000
+    set $task "mid"
+    save STATUS $task
+
+task far_corsi
+    show text @1
     delay 1000
-    ## now goto next seq if correct twice
-    set $currentcount &Count
-    if $SeqCorrect == 1
-        set &corsispan &Count ## the best score so far
-        set &Count increase
-        set &ErrorCount 0    
-    fi
-    ## count errors in a row
-    if $SeqCorrect == 0
-        set &ErrorCount increase
-    fi
-    ## save data
-    save &corsispan $currentcount $SeqCorrect TABLEROW
-    ## if two errors in a row or if all are correctly clicked, end of task
-    if &ErrorCount == 2 or &Count == 10
-        end tasklist
-    fi
-    delay 5000
-    
+    clear -1
+    mouse off
+    show bitmap red
+    # Rose
+    show rectangle 50 550 40 40 252 3 82
+    show rectangle 50 500 40 40 252 3 82
+    show rectangle 50 450 40 40 252 3 82
+    show rectangle 50 400 40 40 252 3 82
+    show rectangle 50 350 40 40 252 3 82
+    show rectangle 50 300 40 40 252 3 82
+    show rectangle 50 250 40 40 252 3 82
+    show rectangle 50 200 40 40 252 3 82
+    show rectangle 50 150 40 40 252 3 82
+    show rectangle 50 100 40 40 252 3 82
+    show rectangle 50 50 40 40 252 3 82
+    show rectangle 100 50 40 40 252 3 82
+    show rectangle 150 50 40 40 252 3 82
+    show rectangle 200 50 40 40 252 3 82
+    show rectangle 250 50 40 40 252 3 82
+    show rectangle 300 50 40 40 252 3 82
+    show rectangle 350 50 40 40 252 3 82
+    show rectangle 400 50 40 40 252 3 82
+    show rectangle 450 50 40 40 252 3 82
+    show rectangle 500 50 40 40 252 3 82
+    show rectangle 550 50 40 40 252 3 82
+    show rectangle 600 50 40 40 252 3 82
+    show rectangle 650 50 40 40 252 3 82
+    show rectangle 700 50 40 40 252 3 82
+    show rectangle 750 50 40 40 252 3 82
+    show rectangle 750 100 40 40 252 3 82
+    show rectangle 750 150 40 40 252 3 82
+    show rectangle 750 200 40 40 252 3 82
+    show rectangle 750 250 40 40 252 3 82
+    show rectangle 750 300 40 40 252 3 82
+    show rectangle 750 350 40 40 252 3 82
+    show rectangle 750 400 40 40 252 3 82
+    show rectangle 750 450 40 40 252 3 82
+    show rectangle 750 500 40 40 252 3 82
+    show rectangle 750 550 40 40 252 3 82
+    show rectangle 700 550 40 40 252 3 82
+    show rectangle 650 550 40 40 252 3 82
+    show rectangle 600 550 40 40 252 3 82
+    show rectangle 550 550 40 40 252 3 82
+    show rectangle 500 550 40 40 252 3 82
+    show rectangle 450 550 40 40 252 3 82
+    show rectangle 400 550 40 40 252 3 82
+    show rectangle 350 550 40 40 252 3 82
+    show rectangle 300 550 40 40 252 3 82
+    show rectangle 250 550 40 40 252 3 82
+    show rectangle 200 550 40 40 252 3 82
+    show rectangle 150 550 40 40 252 3 82
+    show rectangle 100 550 40 40 252 3 82
+    show rectangle 50 550 40 40 252 3 82
+    # Second layer
+    show rectangle 100 500 40 40 252 3 82
+    show rectangle 100 450 40 40 252 3 82
+    show rectangle 100 400 40 40 252 3 82
+    show rectangle 100 350 40 40 252 3 82
+    show rectangle 100 300 40 40 252 3 82
+    show rectangle 100 250 40 40 252 3 82
+    show rectangle 100 200 40 40 252 3 82
+    show rectangle 100 150 40 40 252 3 82
+    show rectangle 100 100 40 40 252 3 82
+    show rectangle 700 100 40 40 252 3 82
+    show rectangle 700 150 40 40 252 3 82
+    show rectangle 700 200 40 40 252 3 82
+    show rectangle 700 250 40 40 252 3 82
+    show rectangle 700 300 40 40 252 3 82
+    show rectangle 700 350 40 40 252 3 82
+    show rectangle 700 400 40 40 252 3 82
+    show rectangle 700 450 40 40 252 3 82
+    show rectangle 700 500 40 40 252 3 82
+    # Orange
+    show rectangle 150 100 40 40 252 119 3
+    show rectangle 200 100 40 40 252 119 3
+    show rectangle 250 100 40 40 252 119 3
+    show rectangle 300 100 40 40 252 119 3
+    show rectangle 350 100 40 40 252 119 3
+    show rectangle 400 100 40 40 252 119 3
+    show rectangle 450 100 40 40 252 119 3
+    show rectangle 500 100 40 40 252 119 3
+    show rectangle 550 100 40 40 252 119 3
+    show rectangle 600 100 40 40 252 119 3
+    show rectangle 650 100 40 40 252 119 3
+    show rectangle 650 150 40 40 252 119 3
+    show rectangle 650 200 40 40 252 119 3
+    show rectangle 650 250 40 40 252 119 3
+    show rectangle 650 300 40 40 252 119 3
+    show rectangle 650 350 40 40 252 119 3
+    show rectangle 650 400 40 40 252 119 3
+    show rectangle 650 450 40 40 252 119 3
+    show rectangle 650 500 40 40 252 119 3
+    show rectangle 600 500 40 40 252 119 3
+    show rectangle 550 500 40 40 252 119 3
+    show rectangle 500 500 40 40 252 119 3
+    show rectangle 450 500 40 40 252 119 3
+    show rectangle 400 500 40 40 252 119 3
+    show rectangle 350 500 40 40 252 119 3
+    show rectangle 300 500 40 40 252 119 3
+    show rectangle 250 500 40 40 252 119 3
+    show rectangle 200 500 40 40 252 119 3
+    show rectangle 150 500 40 40 252 119 3
+    show rectangle 150 450 40 40 252 119 3
+    show rectangle 150 400 40 40 252 119 3
+    show rectangle 150 350 40 40 252 119 3
+    show rectangle 150 300 40 40 252 119 3
+    show rectangle 150 250 40 40 252 119 3
+    show rectangle 150 200 40 40 252 119 3
+    show rectangle 150 150 40 40 252 119 3
+    # Second layer
+    show rectangle 200 150 40 40 252 119 3
+    show rectangle 200 200 40 40 252 119 3
+    show rectangle 200 250 40 40 252 119 3
+    show rectangle 200 300 40 40 252 119 3
+    show rectangle 200 350 40 40 252 119 3
+    show rectangle 200 400 40 40 252 119 3
+    show rectangle 200 450 40 40 252 119 3
+    show rectangle 600 450 40 40 252 119 3
+    show rectangle 600 400 40 40 252 119 3
+    show rectangle 600 350 40 40 252 119 3
+    show rectangle 600 300 40 40 252 119 3
+    show rectangle 600 250 40 40 252 119 3
+    show rectangle 600 200 40 40 252 119 3
+    show rectangle 600 150 40 40 252 119 3
+    # Blue
+    show rectangle 550 150 40 40 3 136 252
+    show rectangle 550 200 40 40 3 136 252
+    show rectangle 550 250 40 40 3 136 252
+    show rectangle 550 300 40 40 3 136 252
+    show rectangle 550 350 40 40 3 136 252
+    show rectangle 550 400 40 40 3 136 252
+    show rectangle 550 450 40 40 3 136 252
+    show rectangle 500 450 40 40 3 136 252
+    show rectangle 450 450 40 40 3 136 252
+    show rectangle 400 450 40 40 3 136 252
+    show rectangle 350 450 40 40 3 136 252
+    show rectangle 300 450 40 40 3 136 252
+    show rectangle 250 450 40 40 3 136 252
+    show rectangle 250 400 40 40 3 136 252
+    show rectangle 250 350 40 40 3 136 252
+    show rectangle 250 300 40 40 3 136 252
+    show rectangle 250 250 40 40 3 136 252
+    show rectangle 250 200 40 40 3 136 252
+    show rectangle 250 150 40 40 3 136 252
+    show rectangle 300 150 40 40 3 136 252
+    show rectangle 350 150 40 40 3 136 252
+    show rectangle 400 150 40 40 3 136 252
+    show rectangle 450 150 40 40 3 136 252
+    show rectangle 500 150 40 40 3 136 252
+    # Second layer
+    show rectangle 500 200 40 40 3 136 252
+    show rectangle 500 250 40 40 3 136 252
+    show rectangle 500 300 40 40 3 136 252
+    show rectangle 500 350 40 40 3 136 252
+    show rectangle 500 400 40 40 3 136 252
+    show rectangle 450 400 40 40 3 136 252
+    show rectangle 400 400 40 40 3 136 252
+    show rectangle 350 400 40 40 3 136 252
+    show rectangle 300 400 40 40 3 136 252
+    show rectangle 300 350 40 40 3 136 252
+    show rectangle 300 300 40 40 3 136 252
+    show rectangle 300 250 40 40 3 136 252
+    show rectangle 300 200 40 40 3 136 252
+    show rectangle 350 200 40 40 3 136 252
+    show rectangle 400 200 40 40 3 136 252
+    show rectangle 450 200 40 40 3 136 252
+    # Show path
+    table far
+    delay 500
+    set $iterator 0
+    while $iterator < @1
+        if $iterator == 0 && $iterator < @1
+            show rectangle @2 @3 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 1 && $iterator < @1
+            show rectangle @4 @5 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 2 && $iterator < @1
+            show rectangle @6 @7 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 3 && $iterator < @1
+            show rectangle @8 @9 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 4 && $iterator < @1
+            show rectangle @10 @11 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 5 && $iterator < @1
+            show rectangle @12 @13 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 6 && $iterator < @1
+            show rectangle @14 @15 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 7 && $iterator < @1
+            show rectangle @16 @17 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+        if $iterator == 8 && $iterator < @1
+            show rectangle @18 @19 40 40 251 250 0
+            set $iterator increase
+            part delay
+        fi
+    while-end
+    clear screen
+    show text "How many squares turned yellow?"
+    readkeys @1 10000
+    set $task "far"
+    save STATUS $task
+
 block test
     message instructions
     bitmap ready3
@@ -304,5 +728,7 @@ block test
     bitmap ready1
     delay 1000
     tasklist
-        nearcorsi 5 all_before_repeat
-    end
+       near_corsi 5 all_before_repeat
+       mid_corsi 5 all_before_repeat
+       far_corsi 5 all_before_repeat
+   end
