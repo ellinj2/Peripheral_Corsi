@@ -1,0 +1,20 @@
+version: 3.4.0
+server-time: 2022-04-14-22-29
+user_agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/605.1.15 (khtml, like gecko) version/15.4 safari/605.1.15
+screen_width: 0
+screen_height: 0
+html_width: 0
+html_height: 0
+user_time: 0
+T: 0
+l: Setup
+stime: 2022-04-14-22-29
+T: 7001
+t: textline
+a: 
+l: Peripheral_Corsi_Experiment
+stime: 2022-04-14-22-30
+T: 86919
+t: experiment
+endcode: 
+end 2022-04-14-22-30

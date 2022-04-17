@@ -1,0 +1,20 @@
+version: 3.4.0
+server-time: 2022-04-14-21-51
+user_agent: mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/100.0.4896.75 safari/537.36
+screen_width: 0
+screen_height: 0
+html_width: 0
+html_height: 0
+user_time: 0
+T: 0
+l: Setup
+stime: 2022-04-14-21-51
+T: 7264
+t: textline
+a: yes
+l: Peripheral_Corsi_Experiment
+stime: 2022-04-14-21-52
+T: 62414
+t: experiment
+endcode: 
+end 2022-04-14-21-52

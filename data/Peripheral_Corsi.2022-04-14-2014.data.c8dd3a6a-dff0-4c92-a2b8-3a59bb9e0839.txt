@@ -1,0 +1,15 @@
+1 near 9503
+1 near 2298
+1 near 2376
+1 near 2007
+1 near 1683
+1 mid 4533
+1 mid 2293
+2 mid 2924
+1 mid 1752
+1 mid 1825
+1 far 1743
+1 far 1610
+1 far 1618
+1 far 2293
+1 far 1597

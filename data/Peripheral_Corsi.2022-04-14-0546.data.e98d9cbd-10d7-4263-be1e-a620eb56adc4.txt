@@ -1,0 +1,15 @@
+3 near 5069
+3 near 10000
+3 near 5680
+3 near 579
+3 near 6693
+3 mid 3605
+3 mid 10000
+3 mid 1755
+3 mid 10000
+3 mid 2416
+3 far 8262
+3 far 6664
+3 far 750
+3 far 7289
+3 far 10000

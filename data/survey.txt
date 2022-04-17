@@ -1,0 +1,8 @@
+l: Setup
+t: textline
+q: In this experiment, please position yourself such that the rose-colored squares are just on the edge of your peripheral vision.
+- Okay
+
+l: Peripheral_Corsi_Experiment
+t: experiment
+- Peripheral_Corsi

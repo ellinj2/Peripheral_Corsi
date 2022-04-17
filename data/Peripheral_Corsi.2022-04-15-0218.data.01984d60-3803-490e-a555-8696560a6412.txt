@@ -1,0 +1,15 @@
+1 near 6290
+1 near 3145
+1 near 2317
+1 near 1340
+1 near 2571
+1 mid 2148
+1 mid 937
+1 mid 1643
+1 mid 2966
+1 mid 1857
+1 far 2471
+1 far 1159
+1 far 2541
+1 far 927
+1 far 936

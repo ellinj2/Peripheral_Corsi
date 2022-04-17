@@ -1,0 +1,20 @@
+version: 3.4.0
+server-time: 2022-04-13-22-04
+user_agent: mozilla/5.0 (x11; ubuntu; linux x86_64; rv:99.0) gecko/20100101 firefox/99.0
+screen_width: 0
+screen_height: 0
+html_width: 0
+html_height: 0
+user_time: 0
+T: 0
+l: Setup
+stime: 2022-04-13-22-04
+T: 23560
+t: textline
+a: Okie Dokie
+l: Peripheral_Corsi_Experiment
+stime: 2022-04-13-22-07
+T: 146394
+t: experiment
+endcode: 
+end 2022-04-13-22-07
